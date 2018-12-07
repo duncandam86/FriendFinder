@@ -10,7 +10,7 @@ module.exports = function (app) {
     app.post("/api/friends", function (req, res) {
         let newUser = req.body;
 
-        console.log(newUser)
+        // console.log(newUser)
 
 
         //parseINt all the scores since input scores are string
@@ -36,25 +36,26 @@ module.exports = function (app) {
                 return a + b
             }
             add(totalDiff)
-            console.log(totalDiff);
+            // console.log(totalDiff);
 
             //push totalDiff from each friend to the total Diff Array
             totalDiffArr.push(totalDiff);
-            console.log(totalDiffArr);
+            // console.log(totalDiffArr);
             
             //identify the lowest difference among all totalDiif
             let minDiff = Math.min.apply(null, totalDiffArr);
-            console.log(minDiff)
+            // console.log(minDiff)
             index = totalDiffArr.indexOf(minDiff)
             console.log(index)
         }
 
         // push new user into the new freinds Array
         friendsArr.push(newUser);
-        res.json(friendsArr)
-        console.log("your new best friend is:" + friendsArr[index].name);
-        // res.json(friendsArr);
-        // res.json(friendsArr[index])
+        
+        res.json(friendsArr[index])
+        
+        console.log("your new best friend is: " + friendsArr[index].name);
+        
     })
 
 }

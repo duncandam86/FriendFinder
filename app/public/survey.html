@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Survey</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -27,11 +30,11 @@
                 <div>
                     <select class="form-control" id="question1">
                         <option value="empty"></option>
-                        <option value="1">1 (Strong Agree)</option>
+                        <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2 </option>
                         <option value="3">3 </option>
                         <option value="4">4 </option>
-                        <option value="5">5 (Strong Disagree)</option>
+                        <option value="5">5 (Strongly Agree)</option>
                     </select>
                 </div>
             </div>
@@ -39,13 +42,13 @@
             <div class="form-group">
                 <label for="question1">Generally speaking, you rely more on your experience than your imagination.</label>
                 <div>
-                    <select class="form-control" id="question1">
-                            <option value="empty"></option>
-                            <option value="1">1 (Strong Agree)</option>
-                            <option value="2">2 </option>
-                            <option value="3">3 </option>
-                            <option value="4">4 </option>
-                            <option value="5">5 (Strong Disagree)</option>
+                    <select class="form-control" id="question2">
+                        <option value="empty"></option>
+                        <option value="1">1 (Strong Disagree)</option>
+                        <option value="2">2 </option>
+                        <option value="3">3 </option>
+                        <option value="4">4 </option>
+                        <option value="5">5 (Strong Agree)</option>
                     </select>
                 </div>
             </div>
@@ -53,7 +56,7 @@
             <div class="form-group">
                 <label for="question1">You find it easy to stay relaxed and focused even when there is some pressure.</label>
                 <div>
-                    <select class="form-control" id="question1">
+                    <select class="form-control" id="question3">
                         <option value="empty"></option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -67,7 +70,7 @@
             <div class="form-group">
                 <label for="question1">You rarely do something just out of sheer curiosity.</label>
                 <div>
-                    <select class="form-control" id="question1">
+                    <select class="form-control" id="question4">
                         <option value="empty"></option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -81,7 +84,7 @@
             <div class="form-group">
                 <label for="question1">People can rarely upset you.</label>
                 <div>
-                    <select class="form-control" id="question1">
+                    <select class="form-control" id="question5">
                         <option value="empty"></option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -95,7 +98,7 @@
             <div class="form-group">
                 <label for="question1">It is often difficult for you to relate to other people’s feelings.</label>
                 <div>
-                    <select class="form-control" id="question1">
+                    <select class="form-control" id="question6">
                         <option value="empty"></option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -109,7 +112,7 @@
             <div class="form-group">
                 <label for="question1">In a discussion, truth should be more important than people’s sensitivities.</label>
                 <div>
-                    <select class="form-control" id="question1">
+                    <select class="form-control" id="question7">
                         <option value="empty"></option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -123,7 +126,7 @@
             <div class="form-group">
                 <label for="question1">You rarely get carried away by fantasies and ideas.</label>
                 <div>
-                    <select class="form-control" id="question1">
+                    <select class="form-control" id="question8">
                         <option value="empty"></option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -135,9 +138,10 @@
             </div>
             <br>
             <div class="form-group">
-                <label for="question1">You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</label>
+                <label for="question1">You think that everyone’s views should be respected regardless of whether they
+                    are supported by facts or not.</label>
                 <div>
-                    <select class="form-control" id="question1">
+                    <select class="form-control" id="question9">
                         <option value="empty"></option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -151,7 +155,7 @@
             <div class="form-group">
                 <label for="question1">You feel more energetic after spending time with a group of people.</label>
                 <div>
-                    <select class="form-control" id="question1">
+                    <select class="form-control" id="question10">
                         <option value="empty"></option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -164,7 +168,7 @@
         </form>
         <br>
         <div class="text-center">
-            <button id="submitBtn" type="submit" class="btn btn-success btn-lg">Submit</button>
+            <button id="submitBttn" type="submit" class="btn btn-success btn-lg">Submit</button>
         </div>
 
         <!-- Modal after survey completion -->
@@ -187,13 +191,55 @@
     </div>
     <br>
     <footer>
-            <div class="container">
-                <a href="/api/friends">API Friends List</a>
-                <span>|</span>
-                <a href="https://github.com/duncandam86/FriendFinder">GitHub Repo</a>
-            </div>
-        </footer>
-    
+        <div class="container">
+            <a href="/api/friends">API Friends List</a>
+            <span>|</span>
+            <a href="https://github.com/duncandam86/FriendFinder">GitHub Repo</a>
+        </div>
+    </footer>
+
 </body>
 
 </html>
+
+<script>
+    $("#submitBttn").on("click", function (event) {
+        event.preventDefault();
+
+        //validate forms to make sure that name and pictures are entered
+        if ($("#name").val() === "" || $("#photo").val() === "" || $("#question1").val() === "" || $("#question2").val() === "" || $("#question3").val() === ""
+            || $("#question4").val() === "" || $("#question5").val() === "" || $("#question6").val() === "" || $("#question7").val() === "" || $("#question8").val() === ""
+            || $("#question9").val() === "" || $("#question10").val() === "") {
+            alert("Please fill in the survey form!");
+            return;
+        }
+
+        else {
+            let newFriend = {
+                name: $("#name").val().trim(),
+                photo: $("#photo").val().trim(),
+                scores: [
+                    $("#question1").val(),
+                    $("#question2").val(),
+                    $("#question3").val(),
+                    $("#question4").val(),
+                    $("#question5").val(),
+                    $("#question6").val(),
+                    $("#question7").val(),
+                    $("#question8").val(),
+                    $("#question9").val(),
+                    $("#question10").val()
+                ]
+            }
+            console.log(newFriend)
+            // making an ajax to the api/friends
+            $.ajax({
+                method: "POST",
+                url: "/api/friends",
+                data: newFriend
+            }).then(function (data){
+                // console.log(data)
+            }) 
+        }
+    })
+</script>

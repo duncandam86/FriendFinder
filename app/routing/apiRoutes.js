@@ -12,26 +12,22 @@ module.exports = function (app) {
 
         // console.log(newUser)
 
-
-        //parseINt all the scores since input scores are string
-        for (var i = 0; i < newUser.length; i++) {
-            newUser.scores[i] = parseInt(newUser.scores[i]);
-        }
         // create variable to hold index for potential best friend and differences in score
         let totalDiffArr = [];
         let index;
         //loop through all friends in the friendArr
         for (i = 0; i < friendsArr.length; i++) {
             let diffArr = []
-            //loop through all score of each user or friend
+            //loop through all score of each friend
             for (j = 0; j < friendsArr[i].scores.length; j++) {
                 //create variable to store difference between new user and any of the current friend in the array
                 quesDiff = Math.abs(newUser.scores[j] - friendsArr[i].scores[j]);
+                //push the quesDiff in diffArr
                 diffArr.push(quesDiff);
             }
             // console.log(difference);
             // calculate totalDiff
-            var totalDiff = diffArr.reduce(add, 0);
+            let totalDiff = diffArr.reduce(add, 0);
             function add(a, b) {
                 return a + b
             }
@@ -45,11 +41,12 @@ module.exports = function (app) {
             //identify the lowest difference among all totalDiif
             let minDiff = Math.min.apply(null, totalDiffArr);
             // console.log(minDiff)
+            //identify the index of the minDiff
             index = totalDiffArr.indexOf(minDiff)
-            console.log(index)
+            // console.log(index)
         }
 
-        // push new user into the new freinds Array
+        // push new user into the new friends Array
         friendsArr.push(newUser);
         
         res.json(friendsArr[index])
